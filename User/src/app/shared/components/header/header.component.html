@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg bg-danger">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">E-commerce</a>
+    <div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/cart']" routerLinkActive="active">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/products']" routerLinkActive="active">Products</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn()">
+          <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Register</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn()">
+          <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn()">
+          <a class="nav-link"  [routerLink]="['/products']" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
